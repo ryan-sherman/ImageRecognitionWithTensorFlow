@@ -173,7 +173,7 @@ def _generate_image_and_label_batch(image, label, min_queue_examples):
 
 
 def distorted_inputs():
-  """Construct distorted input for CIFAR training using the Reader ops.
+  """Construct distorted input for mnist training using the Reader ops.
 
   Raises:
     ValueError: if no data_dir
@@ -182,7 +182,7 @@ def distorted_inputs():
     images: Images. 4D tensor of [batch_size, IMAGE_SIZE, IMAGE_SIZE, 3] size.
     labels: Labels. 1D tensor of [batch_size] size.
   """
-  filenames = [os.path.join(FLAGS.data_dir, 'cifar-10-batches-bin',
+  filenames = [os.path.join(FLAGS.data_dir, 'mnist-batches-bin',
                             'data_batch_%d.bin' % i)
                for i in xrange(1, 6)]
   for f in filenames:

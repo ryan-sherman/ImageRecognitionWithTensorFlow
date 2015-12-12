@@ -46,7 +46,7 @@ from six.moves import urllib
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
 
-import input_mnist_data
+from tensorflow.models.image.cifar10 import cifar10_input
 from tensorflow.python.platform import gfile
 
 FLAGS = tf.app.flags.FLAGS
@@ -78,7 +78,7 @@ INITIAL_LEARNING_RATE = 0.1       # Initial learning rate.
 # names of the summaries when visualizing a model.
 TOWER_NAME = 'tower'
 
-DATA_URL = 'http://yann.lecun.com/exdb/mnist/'
+DATA_URL = 'http://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz'
 
 
 def _activation_summary(x):
@@ -189,7 +189,7 @@ def distorted_inputs():
   filename_queue = tf.train.string_input_producer(filenames)
 
   # Read examples from files in the filename queue.
-  read_input = input_mnist_data.read_cifar10(filename_queue)
+  read_input = cifar10_input.read_cifar10(filename_queue)
   reshaped_image = tf.cast(read_input.uint8image, tf.float32)
 
   height = IMAGE_SIZE
@@ -260,7 +260,7 @@ def inputs(eval_data):
   filename_queue = tf.train.string_input_producer(filenames)
 
   # Read examples from files in the filename queue.
-  read_input = input_mnist_data.read_cifar10(filename_queue)
+  read_input = cifar10_input.read_cifar10(filename_queue)
   reshaped_image = tf.cast(read_input.uint8image, tf.float32)
 
   height = IMAGE_SIZE
