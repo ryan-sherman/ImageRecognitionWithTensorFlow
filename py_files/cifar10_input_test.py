@@ -25,7 +25,7 @@ import tensorflow.python.platform
 
 import tensorflow as tf
 
-import input_mnist_data
+import cifar10_input
 
 
 class CIFAR10InputTest(tf.test.TestCase):
@@ -51,7 +51,7 @@ class CIFAR10InputTest(tf.test.TestCase):
       q = tf.FIFOQueue(99, [tf.string], shapes=())
       q.enqueue([filename]).run()
       q.close().run()
-      result = input_mnist_data.read_cifar10(q)
+      result = cifar10_input.read_cifar10(q)
 
       for i in range(3):
         key, label, uint8image = sess.run([

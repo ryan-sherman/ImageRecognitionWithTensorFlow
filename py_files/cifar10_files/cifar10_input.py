@@ -55,7 +55,7 @@ def read_cifar10(filename_queue):
   label_bytes = 1  # 2 for CIFAR-100
   result.height = 32
   result.width = 32
-  result.depth = 3
+  result.depth = 1
   image_bytes = result.height * result.width * result.depth
   # Every record consists of a label followed by the image, with a
   # fixed number of bytes for each.

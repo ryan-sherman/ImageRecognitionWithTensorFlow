@@ -47,7 +47,7 @@ import numpy as np
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
 
-import cifar10
+import shape_train as cifar10
 
 FLAGS = tf.app.flags.FLAGS
 

@@ -18,4 +18,5 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import input_mnist_data
+import cifar10
+import cifar10_input
